@@ -26,11 +26,16 @@ if isdirectory(expand(FlyVimBundleDir("nerdtree")))
     " ctrl + w + w......光标自动在左右侧窗口切换
     " }}}
 
-    let g:NERDTreeMinimalUI = 1
+    " let g:NERDTreeMinimalUI = 1
     let g:NERDTreeDirArrows = 1
     let g:NERDTreeHijackNetrw = 0
     noremap <localleader>n :NERDTreeToggle<cr>
     nnoremap <localleader>fd :NERDTreeFind<CR>
-    let g:NERDTreeDirArrowExpandable = '▸'
-    let g:NERDTreeDirArrowCollapsible = '▾'
+    let g:NERDTreeFileExtensionHighlightFullName = 1
+    let g:NERDTreeExactMatchHighlightFullName = 1
+    let g:NERDTreePatternMatchHighlightFullName = 1
+    let g:NERDTreeHighlightFolders = 1         
+    let g:NERDTreeHighlightFoldersFullName = 1 
+    let g:NERDTreeDirArrowExpandable = '▷'
+    let g:NERDTreeDirArrowCollapsible = '▼'
 endif

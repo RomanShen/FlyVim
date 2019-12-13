@@ -7,7 +7,7 @@ if isdirectory(expand(FlyVimBundleDir("ale")))
     let g:ale_echo_delay = 20
     let g:ale_lint_delay = 500
     let g:ale_sign_error = '✗'
-    let g:ale_sign_warning = '➤'
+    let g:ale_sign_warning = '⚠'
     let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
     " let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 

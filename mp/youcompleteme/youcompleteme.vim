@@ -19,11 +19,14 @@ if isdirectory(expand(FlyVimBundleDir("YouCompleteMe")))
     let g:ycm_server_log_level = 'info'
     let g:ycm_min_num_identifier_candidate_chars = 2
     let g:ycm_collect_identifiers_from_comments_and_strings = 1
+    let g:ycm_collect_identifiers_from_tags_files = 1
     let g:ycm_complete_in_comments = 1
     let g:ycm_complete_in_strings=1
     let g:ycm_seed_identifiers_with_syntax=1
+    let g:ycm_error_symbol = '✗'
+    let g:ycm_warning_symbol = '⚠'
     let g:ycm_key_invoke_completion = '<c-z>'
-    set completeopt=menu,menuone
+    set completeopt=menu,menuone,noselect
 
     noremap <c-z> <NOP>
 
@@ -41,11 +44,17 @@ if isdirectory(expand(FlyVimBundleDir("YouCompleteMe")))
                 \}
 
     " 两个字符自动触发语义补全
+    " let g:ycm_semantic_triggers =  {
+    "            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
+    "            \ 'cs,lua,javascript': ['re!\w{2}'],
+    "            \ }
+    if !exists('g:ycm_semantic_triggers')
+        let g:ycm_semantic_triggers = {}
+    endif
     let g:ycm_semantic_triggers =  {
                 \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
                 \ 'cs,lua,javascript': ['re!\w{2}'],
                 \ }
-
     " let g:ycm_semantic_triggers = get(g:, 'ycm_semantic_triggers', {})
 
     " function! s:set_ft_triggers(ft, expr, override) abort

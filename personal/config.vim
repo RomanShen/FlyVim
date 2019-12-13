@@ -106,6 +106,8 @@ set backupext=.bak
 " 禁用交换文件
 set noswapfile
 
+" 在处理未保存或只读文件的时候，弹出确认
+set confirm
 " 禁用 undo文件
 set noundofile
 

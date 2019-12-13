@@ -1,7 +1,8 @@
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
-" Plug 'liuchengxu/eleline.vim'
+Plug 'liuchengxu/eleline.vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
@@ -11,15 +12,16 @@ Plug 'taohexxx/lightline-buffer'
 " Plug 'miyakogi/seiya.vim'
 
 " 展示开始画面，显示最近编辑过的文件
-Plug 'mhinz/vim-startify', { 'on': 'Startify' }
-aug load_start
-  autocmd!
-  autocmd VimEnter *
-              \   if !argc()
-              \|    call plug#load('vim-startify')
-              \|    silent! Startify
-              \|  endif
-aug END
+" Plug 'mhinz/vim-startify', { 'on': 'Startify' }
+"aug load_start
+"  autocmd!
+"  autocmd VimEnter *
+"              \   if !argc()
+"              \|    call plug#load('vim-startify')
+"              \|    silent! Startify
+"              \|  endif
+"aug END
+Plug 'chxuan/vimplus-startify'
 
 " 一次性安装一大堆 colorscheme
 " Plug 'flazz/vim-colorschemes'
