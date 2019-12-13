@@ -1,7 +1,7 @@
 if isdirectory(expand(FlyVimBundleDir("lightline.vim")))
     let g:lightline = {
                 \ 'colorscheme': 'lightline_solarized',
-                \ 'separator': { 'left': '', 'right': ''  },
+                \ 'separator': { 'left': '▶', 'right': '◀'  },
                 \ 'subseparator': { 'left': '', 'right': ''  },
                 \   'mode_map': {
                 \     'i' : 'I',
@@ -18,10 +18,11 @@ if isdirectory(expand(FlyVimBundleDir("lightline.vim")))
                 \ 'active': {
                 \   'left': [ [ 'mode', 'paste' ],
                 \             [ 'fugitive', 'filename' ],
-                \             [ 'ctrlpmark' ] ],
+                \             [ 'ctrlpmark' ],
+                              [ 'cocstatus' ] ],
                 \   'right': [ [ 'lineinfo' ],
-                \              [ 'fileencoding', 'fileformat' ],
-                \              [ 'linter_warnings', 'linter_errors', 'linter_ok'],
+                \              [ 'fileencoding', 'fileformat', 'percent' ],
+                \              [ 'readonly', 'linter_warnings', 'linter_errors', 'linter_ok'],
                 \              [ 'filetype' ] ],
                 \ },
                 \ 'inactive': {
@@ -35,7 +36,7 @@ if isdirectory(expand(FlyVimBundleDir("lightline.vim")))
                 \   'right': [ [ 'close' ], ],
                 \ },
                 \ 'component_expand': {
-                \  'linter_checking': 'lightline#ale#checking',
+                \   'linter_checking': 'lightline#ale#checking',
                 \   'linter_warnings': 'LightlineLinterWarnings',
                 \   'linter_errors': 'LightlineLinterErrors',
                 \   'buffercurrent': 'lightline#buffer#buffercurrent',
@@ -44,7 +45,7 @@ if isdirectory(expand(FlyVimBundleDir("lightline.vim")))
                 \   'bufferall': 'lightline#buffer#bufferall',
                 \ },
                 \ 'component_type': {
-                \     'linter_checking': 'left',
+                \   'linter_checking': 'left',
                 \   'readonly': 'error',
                 \   'linter_warnings': 'warning',
                 \   'linter_errors': 'error',
@@ -60,6 +61,7 @@ if isdirectory(expand(FlyVimBundleDir("lightline.vim")))
                 \   'fileencoding': 'LightlineFileencoding',
                 \   'mode': 'LightlineMode',
                 \   'ctrlpmark': 'CtrlPMark',
+                \   'cocstatus': 'coc#status',
                 \   'bufferinfo': 'lightline#buffer#bufferinfo',
                 \ },
                 \ 'component': {
@@ -184,18 +186,27 @@ if isdirectory(expand(FlyVimBundleDir("lightline.vim")))
     let g:vimshell_force_overwrite_statusline = 0
 
     function! LightlineLinterWarnings() abort
+        if (&readonly)
+            return ''
+        endif
         let l:counts = ale#statusline#Count(bufnr(''))
         let l:all_errors = l:counts.error + l:counts.style_error
         let l:all_non_errors = l:counts.total - l:all_errors
         return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
     endfunction
     function! LightlineLinterErrors() abort
+        if (&readonly)
+            return ''
+        endif
         let l:counts = ale#statusline#Count(bufnr(''))
         let l:all_errors = l:counts.error + l:counts.style_error
         let l:all_non_errors = l:counts.total - l:all_errors
         return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
     endfunction
     function! LightlineLinterOK() abort
+        if (&readonly)
+            return ''
+        endif
         let l:counts = ale#statusline#Count(bufnr(''))
         let l:all_errors = l:counts.error + l:counts.style_error
         let l:all_non_errors = l:counts.total - l:all_errors

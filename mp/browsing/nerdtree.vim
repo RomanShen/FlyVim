@@ -38,4 +38,5 @@ if isdirectory(expand(FlyVimBundleDir("nerdtree")))
     let g:NERDTreeHighlightFoldersFullName = 1 
     let g:NERDTreeDirArrowExpandable = '▷'
     let g:NERDTreeDirArrowCollapsible = '▼'
+    let g:NERDTreeIgnore=['\.pyc','\~$','\.swp','\.DS_Store']
 endif

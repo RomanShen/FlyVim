@@ -1,4 +1,9 @@
 if isdirectory(expand(FlyVimBundleDir("coc.nvim")))
+    set shell=/bin/zsh
+
+    let g:coc_status_error_sign='✗'
+    let g:coc_status_warning_sign='⚠'
+
     inoremap <silent><expr> <TAB>
           \ pumvisible() ? "\<C-n>" :
           \ <SID>check_back_space() ? "\<TAB>" :
