@@ -2,12 +2,13 @@
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'liuchengxu/eleline.vim'
+" Plug 'liuchengxu/eleline.vim'
 
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'taohexxx/lightline-solarized'
 Plug 'taohexxx/lightline-buffer'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Plug 'miyakogi/seiya.vim'
 
