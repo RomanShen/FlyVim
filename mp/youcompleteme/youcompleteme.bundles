@@ -1,14 +1,14 @@
-" Plug 'grailbio/bazel-compilation-database'
-" Plug 'ycm-core/YouCompleteMe'
-" aug load_ycm
-"     autocmd!
-"     autocmd CursorHold,CursorHoldI,InsertEnter * call youcompleteme#Enable()
-"                 \| autocmd! load_ycm
-" aug END
+Plug 'grailbio/bazel-compilation-database'
+Plug 'ycm-core/YouCompleteMe', { 'do': function('FlyVim#plug#youcompleteme#build')  }
+aug load_ycm
+    autocmd!
+    autocmd CursorHold,CursorHoldI,InsertEnter * call youcompleteme#Enable()
+                \| autocmd! load_ycm
+aug END
 
 " Usage: ./config_gen.py PROJECT_DIRECTORY
 " or invoke it from within Vim using the :YcmGenerateConfig
-" Plug 'rdnetto/YCM-Generator', { 'on': ['YcmGenerateConfig', 'CCGenerateConfig'], 'branch': 'stable'  }
+Plug 'rdnetto/YCM-Generator', { 'on': ['YcmGenerateConfig', 'CCGenerateConfig'], 'branch': 'stable'  }
 
 " snippets
 " Plug 'SirVer/ultisnips', { 'on': [] }
@@ -19,5 +19,5 @@
 "                 \| autocmd! load_snips
 " aug END
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 

@@ -1,9 +1,16 @@
 if isdirectory(expand(FlyVimBundleDir("YouCompleteMe")))
     let g:ycm_confirm_extra_conf = 0
+
+    let g:ycm_python_interpreter_path = ''
+    let g:ycm_python_sys_path = []
+    let g:ycm_extra_conf_vim_data = [
+      \  'g:ycm_python_interpreter_path',
+      \  'g:ycm_python_sys_path'
+      \]
     let g:ycm_global_ycm_extra_conf=$FlyVim_Dir . '/tools/conf/.ycm_extra_conf.py'
 
     " let g:ycm_python_binary_path = 'python3'
-
+    let g:ycm_clangd_binary_path = '/usr/local/clang_9.0.0/bin/clangd'
     nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
     nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 

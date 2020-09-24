@@ -31,6 +31,8 @@ let g:FlyVim.nvim = has('nvim') && exists('*jobwait') && !g:FlyVim.os.windows
 let g:FlyVim.vim8 = exists('*job_start')
 let g:FlyVim.timer = exists('*timer_start')
 
+let g:python3_host_prog = '/home/shen/.conda/envs/torch/bin/python'
+
 
 command! -nargs=1 LoadScript exec 'so '.$FlyVim_Dir.'/'.'<args>'
 set runtimepath+=$FlyVim_Dir/core
